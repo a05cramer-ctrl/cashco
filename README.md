@@ -26,7 +26,8 @@ The site works right away as a landing page ("Revealed at launch" on the CA, "la
 2. On pump.fun, create the coin from that wallet:
    - name `Cash Cow`, ticker `CASHCOW`, image [`public/brand/pfp-512.png`](public/brand/pfp-512.png)
    - website: your Vercel URL; X / Telegram: your links
-   - choose **Creator Fees** (not Trader Cashback). This can't be changed later and the milking needs it.
+   - pair it with **SOL**, not USDC: pump.fun pays fees in the pool's quote asset, and the milking pours SOL
+   - leave **Mayhem mode** off (it mints a second billion tokens) and don't set up **fee sharing**: the launch wallet has to receive all of the creator fees
 3. Copy the CA into `NEXT_PUBLIC_COIN_MINT` on Vercel (optionally `NEXT_PUBLIC_LAUNCH_DATE`) → **Redeploy**.
 
 For X: profile picture [`public/brand/pfp-512.png`](public/brand/pfp-512.png), header [`public/brand/x-header.jpg`](public/brand/x-header.jpg) (1500×500).
@@ -55,6 +56,7 @@ Check `https://YOUR-SITE/api/state`: every flag under `config` should be `true` 
 
 - **Herd counts.** Every minute the clock reads every $CASHCOW token account. Wallets holding at least `MIN_HOLD_TOKENS` are counted. Program-owned accounts (the bonding curve, PumpSwap pools, lockers) are skipped automatically, and so are the treasury and `EXCLUDE_WALLETS`.
 - **Rounds.** A round is 5 minutes, so about 5 counts. Your weight is your **average** balance across the round's counts, so buying right before the milking earns a sip, not a bucket.
+- **How much milk.** pump.fun's creator fee is 0.30% of every trade on the bonding curve, so about 0.24% of volume reaches holders at the default 80%. After graduation the PumpSwap creator fee is tiered by market cap (up to 0.95%). The current schedule is at [pump.fun/docs/fees](https://pump.fun/docs/fees).
 - **Milking.** When a round ends, the treasury claims all pump.fun creator fees (PumpPortal `collectCreatorFee`). The pot is `NEXT_PUBLIC_MILK_SHARE_BPS` (default 80%) of what actually landed, plus any rounding left over from earlier rounds.
 - **Pouring.** Cups of 0.001 SOL or more are sent, 16 wallets per transaction, up to 30 transactions a minute. Smaller cups are saved up and added to that wallet's next cup. A payout that fails is credited back and retried next round.
 - **Nothing waits on the chain.** A claim or payout sent on one tick is confirmed on the next, so each tick takes a few seconds.

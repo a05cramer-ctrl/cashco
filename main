@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 bfb72f562a67d9894dc53347486889c44272d65e a05cramer-ctrl <250763968+a05cramer-ctrl@users.noreply.github.com> 1791485356 +0200	commit (initial): Cash Cow: pump.fun memecoin site with a holder milking machine
-bfb72f562a67d9894dc53347486889c44272d65e ca8fa7ac8173a4ceda9f5edbc891002449c835d6 Claude <noreply@anthropic.com> 1791486403 +0200	commit: Polish layout: one-line hero CTAs, live curve card, cup preview, rail label on scroll, phone tables
-ca8fa7ac8173a4ceda9f5edbc891002449c835d6 ebb8cf663a1c8463b68c4575523b5aecc8cf64ef Claude <noreply@anthropic.com> 1791487677 +0200	commit: Tidy board markup indentation
-ebb8cf663a1c8463b68c4575523b5aecc8cf64ef 20b123517a1935c87579ae0ccc60706aadba2576 Claude <noreply@anthropic.com> 1791487818 +0200	commit: Add package-lock.json from the verified build (next 16.4.0, react 19.3.0)
-20b123517a1935c87579ae0ccc60706aadba2576 83869bc5ee064e9b1fb26c3620c424a97be75427 a05cramer-ctrl <250763968+a05cramer-ctrl@users.noreply.github.com> 1791487894 +0200	rebase (finish): refs/heads/main onto bfb72f562a67d9894dc53347486889c44272d65e
