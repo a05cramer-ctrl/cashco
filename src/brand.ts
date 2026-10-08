@@ -11,14 +11,14 @@ export const BRAND = {
   tagline: "The cow that pays you to hold it.",
   description:
     "Cash Cow ($CASHCOW) is a pump.fun memecoin that milks itself: every 5 minutes its creator fees are claimed and poured to holders in SOL.",
-  /** The coin's mint (contract address). Empty until launch. */
-  mint: env(process.env.NEXT_PUBLIC_COIN_MINT),
-  xUrl: env(process.env.NEXT_PUBLIC_X_URL),
+  /** The coin's mint (contract address). A NEXT_PUBLIC_COIN_MINT set in Vercel overrides it. */
+  mint: env(process.env.NEXT_PUBLIC_COIN_MINT) || "9LveWE5pJyyE76BuKDca8JcKqAjFAw5hZbhCyDYfpump",
+  xUrl: env(process.env.NEXT_PUBLIC_X_URL) || "https://x.com/CASHCOW_milk",
   telegramUrl: env(process.env.NEXT_PUBLIC_TELEGRAM_URL),
   /** Share of every creator-fee claim that goes to holders, in basis points (8000 = 80%). */
   milkShareBps: clampBps(Number(env(process.env.NEXT_PUBLIC_MILK_SHARE_BPS)) || 8000),
-  /** Launch date shown on the cattle passport, e.g. "2026-10-10". Optional. */
-  bornOn: env(process.env.NEXT_PUBLIC_LAUNCH_DATE),
+  /** Launch date shown on the cattle passport. */
+  bornOn: env(process.env.NEXT_PUBLIC_LAUNCH_DATE) || "2026-10-08",
 } as const;
 
 function clampBps(n: number): number {
